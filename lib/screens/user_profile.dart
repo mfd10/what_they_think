@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:what_they_think/constants/background_color.dart';
 import 'package:what_they_think/screens/posting_page.dart';
@@ -79,7 +78,7 @@ class _ProfileState extends State<Profile> {
                     )),
               ],
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             Container(
               color: Colors.green,
               width: MediaQuery.of(context).size.width * 0.3,
@@ -98,7 +97,7 @@ class _ProfileState extends State<Profile> {
         },
       ),
       bottomNavigationBar: BottomAppBar(
-        shape: CircularNotchedRectangle(),
+        shape: const CircularNotchedRectangle(),
         notchMargin: 4.0,
         child: Row(
           mainAxisSize: MainAxisSize.max,

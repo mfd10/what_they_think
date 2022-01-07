@@ -1,6 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:what_they_think/constants/background_color.dart';
+import 'package:what_they_think/constants/button.dart';
+import 'package:what_they_think/services/auth.dart';
 
 import '../users.dart';
 
@@ -12,6 +13,11 @@ class Setting extends StatefulWidget {
 }
 
 class _SettingState extends State<Setting> {
+
+  AuthService _authService =AuthService();
+  signOut() async{
+    await _authService.signOut();
+  }
   @override
   Widget build(BuildContext context) {
     var formKey = GlobalKey<FormState>();
@@ -50,7 +56,7 @@ class _SettingState extends State<Setting> {
                                       hoverColor: Colors.cyan.shade800,
                                       fillColor: Colors.cyan.shade800,
                                       labelText: "User Name",
-                                      labelStyle: TextStyle(
+                                      labelStyle: const TextStyle(
                                         color: Colors.black,
                                       ),
                                       hintText: "New User Name"),
@@ -59,6 +65,7 @@ class _SettingState extends State<Setting> {
                                         value1!; //TODO change the value with users  info
                                   },
                                 ),
+
                                 ElevatedButton(
                                     style: ElevatedButton.styleFrom(
                                       primary: Colors.cyan.shade800,
@@ -67,6 +74,7 @@ class _SettingState extends State<Setting> {
                                     onPressed: () {
                                       print(users.name);
                                     }),
+
                               ],
                             ),
                           ),
@@ -85,6 +93,8 @@ class _SettingState extends State<Setting> {
                     'Change User name',
                     style: TextStyle(color: Colors.black, fontSize: 15.0),
                   )),
+
+
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
@@ -115,7 +125,13 @@ class _SettingState extends State<Setting> {
                     'Change Profile Photo',
                     style: TextStyle(color: Colors.black, fontSize: 15.0),
                   )),
+
             ),
+            Button(
+                color: Colors.white,
+                width: 200,
+                txt: "Sign out",
+                textColor: Colors.red,function: signOut),
           ],
         ),
       ),

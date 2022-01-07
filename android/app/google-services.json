@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "837475089969",
+    "project_id": "what-they-think",
+    "storage_bucket": "what-they-think.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:837475089969:android:598a34e42b0d7023425f10",
+        "android_client_info": {
+          "package_name": "com.example.what_they_think"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "837475089969-fb6sbp6emv26ekg1iffvcdot4of47gmt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArP1ia_dfdEh8Pex1GZ2QbSHNnSTg_4Kw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "837475089969-fb6sbp6emv26ekg1iffvcdot4of47gmt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

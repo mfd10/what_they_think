@@ -13,7 +13,7 @@ textNormal(String txt, double fSize, Color color, FontWeight fw, double ls) {
   );
 }
 
-textField(double wid, String icon, String hintText, bool obsc) {
+textField(double wid, String icon, String hintText, bool obsc, TextEditingController controller) {
   return Center(
     child: Container(
       width: wid,
@@ -25,6 +25,7 @@ textField(double wid, String icon, String hintText, bool obsc) {
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
         child: TextField(
+          controller: controller,
           autocorrect: false,
           obscureText: obsc,
           decoration: InputDecoration(
@@ -46,8 +47,9 @@ textField(double wid, String icon, String hintText, bool obsc) {
   );
 }
 
-textSignUp(double wid, String hintText, bool obsc) {
-  return Center(
+textSignUp(double wid, String hintText, bool obsc, TextEditingController controller) {
+
+    return Center(
     child: Container(
       width: wid,
       decoration: BoxDecoration(
@@ -57,6 +59,7 @@ textSignUp(double wid, String hintText, bool obsc) {
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
         child: TextFormField(
+          controller: controller,
           autocorrect: false,
           obscureText: obsc,
           decoration: InputDecoration(

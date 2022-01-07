@@ -1,5 +1,5 @@
 class User {
-  late String name = 'Johnny';
+  late String name;
   late String eMail;
   late String password;
 

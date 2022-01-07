@@ -1,5 +1,3 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:what_they_think/constants/background_color.dart';
@@ -7,6 +5,7 @@ import 'package:what_they_think/constants/button.dart';
 import 'package:what_they_think/constants/texts.dart';
 import 'package:what_they_think/screens/sig_up_page.dart';
 import 'package:what_they_think/screens/user_profile.dart';
+import 'package:what_they_think/services/auth.dart';
 import 'package:what_they_think/users.dart';
 
 class Login extends StatefulWidget {
@@ -19,10 +18,16 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   late List<User> users;
   bool _isVisible = false;
+
+final TextEditingController _email = TextEditingController();
+final TextEditingController _pass = TextEditingController();
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+
+
+    AuthService _auth = AuthService();
     return Material(
       child: Container(
         decoration: BoxDecoration(gradient: backGroundGradient()),
@@ -35,19 +40,19 @@ class _LoginState extends State<Login> {
                 height: height * 0.4,
               ),
               const SizedBox(height: 20),
-              textField(width * 0.8, 'user', 'Enter Username', false),
+              textField(width * 0.8, 'user', 'Enter email', false, _email),
               const SizedBox(height: 10),
               Container(
                 width: width * 0.8,
                 decoration: const BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.horizontal(
-                      left: Radius.zero, right: Radius.zero),
+                  borderRadius: BorderRadius.horizontal( left: Radius.zero, right: Radius.zero),
                 ),
                 child: Padding(
                   padding:
                       const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
                   child: TextFormField(
+                    controller: _pass,
                     obscureText: _isVisible ? false : true,
                     decoration: InputDecoration(
                       prefixIcon: const Padding(
@@ -76,11 +81,11 @@ class _LoginState extends State<Login> {
               const SizedBox(height: 55),
               GestureDetector(
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (_) => const Profile()));
+                  _auth.signIn(_email.text, _pass.text).then((value) =>Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => const Profile())) );
                 },
                 child:
-                    buttons('Login', Colors.white, Colors.black, width * 0.8),
+                    Button(txt: 'Login',color: Colors.white,textColor: Colors.black,width: width * 0.8),
               ),
               const SizedBox(height: 10),
               Row(

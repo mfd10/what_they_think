@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:what_they_think/constants/background_color.dart';
 import 'package:what_they_think/constants/button.dart';
@@ -18,10 +17,14 @@ class WelcomePage extends StatefulWidget {
 class _WelcomePageState extends State<WelcomePage> {
   List<User> users = [];
   User user = User("", "", "");
+  toLogin(BuildContext context) {}
+
+  toSignUp(BuildContext context) {}
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: Container(
         height: height,
@@ -48,20 +51,26 @@ class _WelcomePageState extends State<WelcomePage> {
               height: height * 0.1,
             ),
             GestureDetector(
-              onTap: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (_) => const Login()));
-              },
-              child: buttons('LOGIN', Colors.white, color1, width * 0.75),
-            ),
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => const Login()));
+                },
+                child: Button(
+                    txt: 'LOGIN',
+                    color: Colors.white,
+                    textColor: color1,
+                    width: width * 0.75)),
             const SizedBox(height: 30),
             GestureDetector(
-              onTap: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (_) => const SignUp()));
-              },
-              child: buttons('SIGN UP', color1, Colors.white, width * 0.75),
-            ),
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => const SignUp()));
+                },
+                child: Button(
+                    txt: 'SIGN UP',
+                    color: color1,
+                    textColor: Colors.white,
+                    width: width * 0.75)),
           ]),
         ),
       ),
