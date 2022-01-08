@@ -4,6 +4,12 @@ import 'package:google_fonts/google_fonts.dart';
 Color color1 = const Color(0xff34648c);
 Color color2 = const Color(0xff00b8d4).withOpacity(0.3);
 
+const TextStyle myStyle = TextStyle(
+    fontSize: 12,
+    color: Colors.black,
+    fontWeight: FontWeight.normal,
+    letterSpacing: 1.3);
+
 textNormal(String txt, double fSize, Color color, FontWeight fw, double ls) {
   return Text(
     txt,
@@ -13,7 +19,8 @@ textNormal(String txt, double fSize, Color color, FontWeight fw, double ls) {
   );
 }
 
-textField(double wid, String icon, String hintText, bool obsc, TextEditingController controller) {
+textField(double wid, String icon, String hintText, bool obsc,
+    TextEditingController controller) {
   return Center(
     child: Container(
       width: wid,
@@ -47,9 +54,9 @@ textField(double wid, String icon, String hintText, bool obsc, TextEditingContro
   );
 }
 
-textSignUp(double wid, String hintText, bool obsc, TextEditingController controller) {
-
-    return Center(
+textSignUp(
+    double wid, String hintText, bool obsc, TextEditingController controller) {
+  return Center(
     child: Container(
       width: wid,
       decoration: BoxDecoration(

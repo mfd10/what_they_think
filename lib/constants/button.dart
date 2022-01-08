@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:what_they_think/constants/texts.dart';
+
 class Button extends StatelessWidget {
   final Color color, textColor;
   final VoidCallback? function;
   final double width;
   final String txt;
 
-  Button({Key? key, required this.color,required this.width,required this.txt, required this.textColor, this.function}) : super(key: key);
+  Button(
+      {Key? key,
+      required this.color,
+      required this.width,
+      required this.txt,
+      required this.textColor,
+      this.function})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
