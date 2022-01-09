@@ -13,6 +13,8 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+  //late File _image;
+
   User users = User("Ali", "", "");
 
   final FloatingActionButtonLocation _fabLocation =
