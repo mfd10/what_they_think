@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:what_they_think/constants/background_color.dart';
-import 'package:what_they_think/constants/button.dart';
-import 'package:what_they_think/constants/texts.dart';
-import 'package:what_they_think/screens/login_page.dart';
-import 'package:what_they_think/screens/sig_up_page.dart';
+import 'package:what_they_think/shared/background_color.dart';
+import 'package:what_they_think/shared/button.dart';
+import 'package:what_they_think/shared/texts.dart';
+import 'package:what_they_think/screens/authenticate/login_page.dart';
+import 'package:what_they_think/screens/authenticate/sig_up_page.dart';
 
-import '../users.dart';
+import '../../models/custom_user.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({Key? key}) : super(key: key);
@@ -15,8 +15,8 @@ class WelcomePage extends StatefulWidget {
 }
 
 class _WelcomePageState extends State<WelcomePage> {
-  List<User> users = [];
-  User user = User("", "", "");
+  List<CustomUser> users = [];
+  //User user = User("", "", "");
   toLogin(BuildContext context) {}
 
   toSignUp(BuildContext context) {}

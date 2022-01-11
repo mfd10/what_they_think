@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:what_they_think/constants/background_color.dart';
-import 'package:what_they_think/constants/button.dart';
-import 'package:what_they_think/constants/texts.dart';
-import 'package:what_they_think/screens/sig_up_page.dart';
-import 'package:what_they_think/screens/user_profile.dart';
+import 'package:what_they_think/shared/background_color.dart';
+import 'package:what_they_think/shared/button.dart';
+import 'package:what_they_think/shared/loading.dart';
+import 'package:what_they_think/shared/texts.dart';
+import 'package:what_they_think/screens/authenticate/sig_up_page.dart';
+import 'package:what_they_think/screens/home/user_profile.dart';
 import 'package:what_they_think/services/auth.dart';
-import 'package:what_they_think/users.dart';
+import 'package:what_they_think/models/custom_user.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -16,8 +17,9 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  late List<User> users;
+  late List<CustomUser> users;
   bool _isVisible = false;
+  bool loading=false;
 
 final TextEditingController _email = TextEditingController();
 final TextEditingController _pass = TextEditingController();
@@ -28,7 +30,7 @@ final TextEditingController _pass = TextEditingController();
 
 
     AuthService _auth = AuthService();
-    return Material(
+    return loading ?const Loading() :Material(
       child: Container(
         decoration: BoxDecoration(gradient: backGroundGradient()),
         child: SafeArea(
@@ -81,8 +83,16 @@ final TextEditingController _pass = TextEditingController();
               const SizedBox(height: 55),
               GestureDetector(
                 onTap: () {
-                  _auth.signIn(_email.text, _pass.text).then((value) =>Navigator.push(context,
-                      MaterialPageRoute(builder: (_) => const Profile())) );
+                  setState(() {
+                    loading=true;
+                  });
+                  dynamic result=_auth.signIn(_email.text, _pass.text).then((value) =>Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => const Profile())));
+                  if(result ==  null){
+                    setState(() {
+                      loading=false;
+                    });
+                  }
                 },
                 child:
                     Button(txt: 'Login',color: Colors.white,textColor: Colors.black,width: width * 0.8),

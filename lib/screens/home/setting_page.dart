@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:what_they_think/constants/background_color.dart';
-import 'package:what_they_think/constants/button.dart';
+import 'package:what_they_think/shared/background_color.dart';
+import 'package:what_they_think/shared/button.dart';
+import 'package:what_they_think/screens/authenticate/welcome_page.dart';
 import 'package:what_they_think/services/auth.dart';
-
-import '../users.dart';
+import '../../models/custom_user.dart';
 
 class Setting extends StatefulWidget {
   const Setting({Key? key}) : super(key: key);
@@ -11,17 +11,18 @@ class Setting extends StatefulWidget {
   @override
   State<Setting> createState() => _SettingState();
 }
-
 class _SettingState extends State<Setting> {
 
-  AuthService _authService =AuthService();
-  signOut() async{
-    await _authService.signOut();
-  }
+  final AuthService _authService =AuthService();
+
   @override
   Widget build(BuildContext context) {
+    signOut() async{
+      await _authService.signOut();
+      Navigator.push(context, MaterialPageRoute(builder: (builder)=>const WelcomePage()));
+    }
     var formKey = GlobalKey<FormState>();
-    User users = User("", "", "");
+    CustomUser users = CustomUser (name: "",eMail: "",password: "",uid: "");
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.cyan.shade800,
@@ -86,15 +87,13 @@ class _SettingState extends State<Setting> {
               },
               child: const ListTile(
                   leading: Icon(
-                    Icons.account_circle,
+                    Icons.drive_file_rename_outline,
                     color: Colors.white,
                   ),
                   title: Text(
                     'Change User name',
                     style: TextStyle(color: Colors.black, fontSize: 15.0),
                   )),
-
-
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
@@ -103,7 +102,7 @@ class _SettingState extends State<Setting> {
               onPressed: () {},
               child: const ListTile(
                   leading: Icon(
-                    Icons.account_circle,
+                    Icons.lock,
                     color: Colors.white,
                   ),
                   title: Text(
@@ -118,7 +117,7 @@ class _SettingState extends State<Setting> {
               onPressed: () {},
               child: const ListTile(
                   leading: Icon(
-                    Icons.account_circle,
+                    Icons.add_a_photo_rounded,
                     color: Colors.white,
                   ),
                   title: Text(
@@ -138,6 +137,7 @@ class _SettingState extends State<Setting> {
     );
     ;
   }
+  //
 
   /* Widget cancelButton = TextButton(
     child: Text("Cancel"),
