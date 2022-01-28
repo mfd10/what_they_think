@@ -89,7 +89,7 @@ Internal:
 *flutter_spinkit: ^5.1.0
 *simple_animations: ^1.3.3
 
-More information: https://www.youtube.com/watch?v=N3oCS85HvpY&ab_channel=i%27mcyborgbutthat%27sok
+More information: https://www.youtube.com/watch?v=MknoUpwXfq8
 
 CONTRIBUTORS
 ------------
