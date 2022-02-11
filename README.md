@@ -38,7 +38,7 @@ $ https://github.com/mfd10/what_they_think.git
 
 $ https://github.com/mfd10/what_they_think
 
-and click on Code->Download ZIP->Exctract ZIP. And copt the extracted file to you
+and click on Code->Download ZIP->Exctract ZIP. And copy the extracted file to you
 project folder.
 
 *To run the project flutter,dart and a IDE(Android Studio or VsCode recomended)
@@ -65,8 +65,8 @@ $flutter run
 $ open -a simulator
 $ flutter run
 
-For further informations about the emulators Go to:
-Android: https://developer.android.com/studio/install
+For further informations about the emulators go to:
+Android: https://developer.android.com/studio/
 IOS: https://developer.apple.com/documentation/
 
 TECHNOLOGIES USED
