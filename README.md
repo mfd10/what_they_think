@@ -41,12 +41,12 @@ $ https://github.com/mfd10/what_they_think
 and click on Code->Download ZIP->Exctract ZIP. And copy the extracted file to you
 project folder.
 
-*To run the project flutter,dart and a IDE(Android Studio or VsCode recomended)
+*To run the project, flutter,dart and an IDE(Android Studio or VsCode recomended)
 must be installed into your system.For more information go to the following link:
 
 $ https://docs.flutter.dev/get-started/install
 
-*To get the missing flutter/dart files open the command line/terminal
+*To get the missing flutter/dart files open the command line interface(CLI)/terminal
 (in the project directory) and type:
 
 $ flutter pub upgrade 
@@ -55,7 +55,7 @@ this process may take a while depending on your system.
 *To run the project insert the following command on the terminal.
 
 $ flutter run lib/main.dart
-this process may take a while depending on your system requirements.
+this process may take a while depending on your system.
 
 *To run the app on an android phone type:
 $ flutter emulators --launch [emulator_id]
