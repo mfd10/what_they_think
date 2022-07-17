@@ -30,7 +30,7 @@ for Windows
 
 $ cd C:/Users/user/project_folder
 
-then type:
+open a on web browser and type :
 
 $ https://github.com/mfd10/what_they_think.git
 
